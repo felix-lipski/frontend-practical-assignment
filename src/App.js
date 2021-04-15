@@ -1,7 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getTable } from './redux/mainReducer';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTable('A'));
+    dispatch(getTable('B'));
+  });
+
   return (
     <div className="App">
       <header className="App-header">

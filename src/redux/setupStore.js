@@ -7,7 +7,7 @@ const enhancer = compose(install());
 const initialState = {
   favCurrencies: [],
   currencyTable: [],
-  mainCurrency: null,
+  error: null,
 };
 
 const store = createStore(mainReducer, initialState, enhancer);
