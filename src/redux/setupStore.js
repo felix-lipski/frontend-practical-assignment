@@ -5,7 +5,7 @@ import mainReducer from './mainReducer.js';
 const enhancer = compose(install());
 
 const initialState = {
-  favCurrencies: [],
+  favCurrencies: ['USD', 'EUR', 'PHP', 'GEL'],
   currencyTable: [],
   error: null,
 };
