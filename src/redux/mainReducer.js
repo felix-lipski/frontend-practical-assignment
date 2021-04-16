@@ -51,7 +51,11 @@ const mainReducer = (state, action) => {
       };
 
     case DEL_ALL_FAVS:
-      return state;
+      return {
+        ...state,
+        favCurrencies: [],
+      };
+
     default:
       return state;
   }
