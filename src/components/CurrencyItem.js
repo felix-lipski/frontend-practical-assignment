@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { delFromFavs } from '../redux/mainReducer';
 
 const CurrencyItem = ({ code }) => {
+  const dispatch = useDispatch();
   const currencyTable = useSelector((state) => state.currencyTable);
   const [currObj, setCurrObj] = useState(undefined);
 
   useEffect(() => {
     setCurrObj(currencyTable.find((curr) => curr.code === code));
-    console.log(currencyTable);
   }, [currencyTable, code]);
 
   return (
@@ -26,7 +28,11 @@ const CurrencyItem = ({ code }) => {
         </>
       )}
       <td>
-        <button>x</button>
+        <button
+          onClick={() => window.confirm(`Delete currency ${code}?`) && dispatch(delFromFavs(code))}
+        >
+          x
+        </button>
       </td>
     </tr>
   );

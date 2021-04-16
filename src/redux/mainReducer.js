@@ -43,8 +43,13 @@ const mainReducer = (state, action) => {
 
     case ADD_TO_FAVS:
       return state;
+
     case DEL_FROM_FAVS:
-      return state;
+      return {
+        ...state,
+        favCurrencies: state.favCurrencies.filter((code) => code !== action.payload.code),
+      };
+
     case DEL_ALL_FAVS:
       return state;
     default:

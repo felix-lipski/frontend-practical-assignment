@@ -9,14 +9,18 @@ const FavCurrencies = () => {
     <>
       <h1>Favourites</h1>
       <table>
-        <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Exchange Rate (PLN)</th>
-        </tr>
-        {favCurrencies.map((code) => (
-          <CurrencyItem code={code} key={code} />
-        ))}
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Exchange Rate (PLN)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {favCurrencies.map((code) => (
+            <CurrencyItem code={code} key={code} />
+          ))}
+        </tbody>
       </table>
     </>
   );
