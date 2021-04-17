@@ -32,14 +32,15 @@ const FavCurrencies = () => {
       {searching ? (
         <SearchCurrency setSearching={setSearching} />
       ) : (
-        <>
-          <button onClick={() => setSearching(true)}>Add</button>
+        <div className="btns-under-list">
+          <button onClick={() => setSearching(true)}>add currency</button>
           <button
+            className="btn-delall"
             onClick={() => window.confirm(`Delete all currencies?`) && dispatch(delAllFavs())}
           >
-            Delete all
+            delete all
           </button>
-        </>
+        </div>
       )}
     </>
   );

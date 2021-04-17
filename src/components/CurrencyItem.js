@@ -27,8 +27,9 @@ const CurrencyItem = ({ code }) => {
           <td>Loading...</td>
         </>
       )}
-      <td>
+      <td className="col-del">
         <button
+          className="btn-del"
           onClick={() => window.confirm(`Delete currency ${code}?`) && dispatch(delFromFavs(code))}
         >
           x

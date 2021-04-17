@@ -1,38 +1,70 @@
-.App {
+body {
+  background-color: #fdfdfd;
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+td {
+  border: 1px solid #aaa;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
   color: white;
+  background-color: #123567;
+  border: none;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-del {
+  background-color: brown;
+  padding: 0px;
+  height: 30px;
+  width: 30px;
+  text-transform: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-delall {
+  background-color: brown;
+}
+
+input[type='text'] {
+  font-size: large;
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+ul.searchbox {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  height: 200px;
+  overflow-y: scroll;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.btns-under-list {
+  display: flex;
+  border-top: 1px solid #aaa;
+  justify-content: space-between;
 }

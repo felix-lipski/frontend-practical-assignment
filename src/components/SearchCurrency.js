@@ -25,13 +25,9 @@ const SearchCurrency = ({ setSearching }) => {
         onKeyDown={(e) => e.key === 'Enter' && confirmSearch(searchResults[0].code)}
       />
 
-      <ul style={{ height: '200px', overflow: 'scroll' }}>
+      <ul className="searchbox">
         {searchResults.map((curr) => (
-          <li
-            style={{ cursor: 'pointer' }}
-            onClick={() => confirmSearch(curr.code)}
-            key={curr.code}
-          >
+          <li onClick={() => confirmSearch(curr.code)} key={curr.code}>
             {currToString(curr)}
           </li>
         ))}
