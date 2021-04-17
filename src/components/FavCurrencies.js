@@ -1,39 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import CurrencyItem from './CurrencyItem.js';
+import CurrencyItem from './CurrencyItem';
+import SearchCurrency from './SearchCurrency';
 import { delAllFavs } from '../redux/mainReducer';
 
 const FavCurrencies = () => {
   const dispatch = useDispatch();
   const favCurrencies = useSelector((state) => state.favCurrencies);
+  const [searching, setSearching] = useState(false);
   return (
     <>
       <h1>Favourites</h1>
-      {favCurrencies.length > 0 ? (
+
+      <table>
+        {favCurrencies.length > 0 && (
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Exchange Rate (PLN)</th>
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {favCurrencies.map((code) => (
+            <CurrencyItem code={code} key={code} />
+          ))}
+        </tbody>
+      </table>
+      {searching ? (
+        <SearchCurrency setSearching={setSearching} />
+      ) : (
         <>
-          <table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Exchange Rate (PLN)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {favCurrencies.map((code) => (
-                <CurrencyItem code={code} key={code} />
-              ))}
-            </tbody>
-          </table>
+          <button onClick={() => setSearching(true)}>Add</button>
           <button
             onClick={() => window.confirm(`Delete all currencies?`) && dispatch(delAllFavs())}
           >
             Delete all
           </button>
         </>
-      ) : (
-        <p>Nothing to show!</p>
       )}
     </>
   );

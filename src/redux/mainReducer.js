@@ -42,7 +42,11 @@ const mainReducer = (state, action) => {
       return { ...state, error: action.error };
 
     case ADD_TO_FAVS:
-      return state;
+      if (state.favCurrencies.find((code) => code === action.payload.code)) {
+        return state;
+      } else {
+        return { ...state, favCurrencies: [...state.favCurrencies, action.payload.code] };
+      }
 
     case DEL_FROM_FAVS:
       return {
